@@ -8,6 +8,7 @@ class Marker {
     val STBD : String = "stbd" // starboard
     val UNKNOWN : Int = -1
 
+    var id : Int? = null
     var time : String? = null
     var ownCourse : Int? = null
     var ownSpeed : Int? = null
@@ -18,6 +19,7 @@ class Marker {
     var targetCourse : Int? = null
 
     constructor(
+        id: Int?,
         time: String?,
         ownCourse: Int?,
         ownSpeed: Int?,
@@ -27,6 +29,7 @@ class Marker {
         targetSpeed: Int?,
         targetCourse: Int?
     ) {
+        this.id = id
         this.time = time
         this.ownCourse = ownCourse
         this.ownSpeed = ownSpeed

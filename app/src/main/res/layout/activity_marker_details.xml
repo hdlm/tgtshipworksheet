@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".boundaries.MarkerDetail" android:orientation="vertical" android:id="@+id/id">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Id"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    <TextView
+            android:id="@+id/textViewId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    <TextView
+            android:id="@+id/textViewTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Own Course"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    <TextView
+            android:id="@+id/textViewOwnCourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Own Speed"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    <TextView
+            android:id="@+id/textViewOwnSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Target Bearing"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    <TextView
+            android:id="@+id/textViewTargetBearing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Target AOB"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    <TextView
+            android:id="@+id/textViewTargetAob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Target Range"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    <TextView
+            android:id="@+id/textViewTargetRange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Target Speed"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    <TextView
+            android:id="@+id/textViewTargetSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Target Course"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    <TextView
+            android:id="@+id/textViewTargetCourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>
