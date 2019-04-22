@@ -1,5 +1,7 @@
 package com.dlm.targetshipworksheet.entities
 
+import android.text.Editable
+
 /**
  * The entity represent a Ship mark
  */
@@ -17,6 +19,8 @@ class Marker {
     var targetRange : Int? = null
     var targetSpeed : Int? = null
     var targetCourse : Int? = null
+
+
 
     constructor(
         id: Int?,
