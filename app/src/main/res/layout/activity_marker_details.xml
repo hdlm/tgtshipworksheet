@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextTime" android:hint="Enter Time"/>
+            android:id="@+id/editTextTime" android:hint="@string/hint_time"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextOwnCourse" android:hint="Enter Own Course"/>
+            android:id="@+id/editTextOwnCourse" android:hint="@string/hint_owncourse"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextOwnSpeed" android:hint="Enter Own Speed"/>
+            android:id="@+id/editTextOwnSpeed" android:hint="@string/hint_ownspeed"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextTargetBearing" android:hint="Enter Target Bearing"/>
+            android:id="@+id/editTextTargetBearing" android:hint="@string/hint_targetbearing"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextTargetAob" android:hint="Enter Target AOB"/>
+            android:id="@+id/editTextTargetAob" android:hint="@string/hint_targetaob"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextTargetRange" android:hint="Enter Target Range"/>
+            android:id="@+id/editTextTargetRange" android:hint="@string/hint_targetrange"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextTargetSpeed" android:hint="Enter Target Speed"/>
+            android:id="@+id/editTextTargetSpeed" android:hint="@string/hint_targetspeed"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -126,24 +126,26 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editTextTargetCourse" android:hint="Enter Target Course"/>
+            android:id="@+id/editTextTargetCourse" android:hint="@string/hint_targetcourse"/>
 
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <Button
-                android:text="Save"
-                android:layout_width="100dp"
-                android:layout_height="40dp" android:id="@+id/buttonGuardar" android:layout_alignParentStart="true"
-                android:layout_marginStart="52dp" android:background="@color/colorAccent"/>
-        <Button
-                android:layout_alignRight="@id/buttonGuardar"
-                android:text="Cancel"
-                android:layout_width="100dp"
-                android:layout_height="40dp" android:id="@+id/buttonCancelar"
-                android:layout_marginRight="-143dp" android:layout_marginStart="143dp"
-                android:layout_alignStart="@+id/buttonGuardar" android:background="@color/colorAccent"/>
 
+        <Button
+                android:text="@string/save_marker"
+                android:layout_width="120dp"
+                android:layout_height="match_parent" android:id="@+id/buttonGuardar"
+                android:background="@color/colorAccent"
+                android:textColor="@android:color/white" android:textStyle="bold"
+                android:layout_toStartOf="@+id/buttonCancelar" android:layout_marginEnd="8dp"/>
+        <Button
+                android:text="@string/cancel_marker"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content" android:id="@+id/buttonCancelar"
+                android:background="@color/colorAccent"
+                android:textColor="@android:color/white" android:textStyle="bold" android:layout_alignParentEnd="true"
+                android:layout_marginEnd="8dp"/>
     </RelativeLayout>
 
 

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Target Ship Worksheet</string>
+    <string name="hint_time">Enter the Time</string>
+    <string name="hint_owncourse">Enter Own Course</string>
+    <string name="hint_ownspeed">Enter Own Speed</string>
+    <string name="hint_targetbearing">Enter Target Bearing</string>
+    <string name="hint_targetaob">Enter Target AOB</string>
+    <string name="hint_targetrange">Enter Target Range</string>
+    <string name="hint_targetspeed">Enter Target Speed</string>
+    <string name="hint_targetcourse">Enter Target Course</string>
+    <string name="save_marker">Save</string>
+    <string name="cancel_marker">Cancel</string>
 </resources>
