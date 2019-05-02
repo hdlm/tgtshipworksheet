@@ -9,6 +9,7 @@ import com.dlm.targetshipworksheet.R
 import com.dlm.targetshipworksheet.models.MarkerModel
 import android.text.Editable
 import android.text.TextUtils
+import android.widget.Spinner
 import com.dlm.targetshipworksheet.MainActivity
 import kotlinx.android.synthetic.main.activity_marker_details.*
 
@@ -42,7 +43,7 @@ class MarkerDetail : AppCompatActivity() {
             editTextOwnCourse.text = marker?.ownCourse.toString().toEditable()
             editTextOwnSpeed.text = marker?.ownSpeed.toString().toEditable()
             editTextTargetBearing.setText(marker?.targetBearing.toString())
-            editTextTargetAob.setText(marker?.targetAob.toString())
+            selectSpinnerItemByValue(spinnerTargetAob, marker?.targetAob)
             editTextTargetRange.setText(marker?.targetRange.toString())
             editTextTargetSpeed.setText(marker?.targetSpeed.toString())
             editTextTargetCourse.setText(if (marker!!.targetCourse == -1) "unknown" else marker.targetCourse.toString())
@@ -53,7 +54,7 @@ class MarkerDetail : AppCompatActivity() {
                 marker.ownCourse = editTextOwnCourse.text.toString().toInt()
                 marker.ownSpeed = editTextOwnSpeed.text.toString().toInt()
                 marker.targetBearing = editTextTargetBearing.text.toString().toInt()
-                marker.targetAob = editTextTargetAob.text.toString()
+                marker.targetAob = spinnerTargetAob.selectedItem.toString()
                 marker.targetRange = editTextTargetRange.text.toString().toInt()
                 marker.targetSpeed = editTextTargetSpeed.text.toString().toInt()
                 marker.targetCourse = editTextTargetCourse.text.toString().toInt()
@@ -68,6 +69,18 @@ class MarkerDetail : AppCompatActivity() {
         buttonCancelar.setOnClickListener {
             setResult(Activity.RESULT_CANCELED)
             finish()  // it a function to allowed an activity to stacking out
+        }
+    }
+
+    /** El metodo se encarga de seleccionar el item correpondiente al valor especificado */
+    private fun selectSpinnerItemByValue(spinner: Spinner, value: String?): Unit
+    {
+        if (value != null) {
+            var adapter = spinner.adapter
+            for (pos in 0..adapter.count - 1) {
+                if (adapter.getItem(pos).toString() == value)
+                    spinner.setSelection(pos)
+            }
         }
     }
 

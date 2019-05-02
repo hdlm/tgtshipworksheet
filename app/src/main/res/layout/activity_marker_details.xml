@@ -33,7 +33,7 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="time"
             android:ems="10"
             android:id="@+id/editTextTime" android:hint="@string/hint_time"/>
 
@@ -82,12 +82,11 @@
             android:text="Target AOB"
             android:textSize="18sp"
             android:textStyle="bold"/>
-    <EditText
+    <Spinner
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editTextTargetAob" android:hint="@string/hint_targetaob"/>
+            android:layout_height="wrap_content" android:id="@+id/spinnerTargetAob" android:spinnerMode="dropdown"
+            android:entries="@array/aob_arrays"
+            android:prompt="@string/prompt_targetaob" />
 
     <TextView
             android:layout_width="match_parent"
