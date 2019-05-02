@@ -28,7 +28,7 @@ class MarkerModel (var myPref: SharedPreferences){
             var sortedList = lstMarkers.sortedWith(compareBy({ it.id }))  // ordenar la lista por 'id'
             lst = sortedList
         } else {  // Retornar una lista de registros en blanco
-            lst = findAllDataBlank() as List<Marker>
+            lst = findAllDataBlank()
             for(marker in lst) {  // guardar los registros por defecto de forma persistente
                 save(marker)
             }
@@ -96,7 +96,7 @@ class MarkerModel (var myPref: SharedPreferences){
     /** El metodo se encarga de la persistencia del registro */
     fun save(marker: Marker) {
 
-        var editor: SharedPreferences.Editor = (myPref as SharedPreferences).edit()
+        var editor: SharedPreferences.Editor = myPref.edit()
         editor.putString(marker.id.toString(), marker.toString())
         editor.commit()  // very important!
     }

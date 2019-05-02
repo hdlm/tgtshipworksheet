@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
      */
     private fun createColumns() : Unit {
         var tableRow = TableRow(this)
-        tableRow.layoutParams = (TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
+        tableRow.layoutParams = (TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
 
         // Id Column
         var textViewId = TextView(this)
@@ -144,11 +144,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         textViewTargetCourse.setOnClickListener {Toast.makeText(applicationContext, "Target Course", Toast.LENGTH_LONG).show() }
         tableRow.addView(textViewTargetCourse)
 
-        tableLayout!!.addView(tableRow, TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
+        tableLayout!!.addView(tableRow, TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
 
         // Add Divider
         tableRow = TableRow(this)
-        tableRow.layoutParams = (TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
+        tableRow.layoutParams = (TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
 
         // Id Column
         textViewId = TextView(this)
@@ -213,7 +213,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         textViewTargetCourse.setPadding(5,5,5,0)
         tableRow.addView(textViewTargetCourse)
 
-        tableLayout!!.addView(tableRow, TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
+        tableLayout!!.addView(tableRow, TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
 
     }
 
@@ -226,7 +226,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         for(marker in markerModel.findAll()) {
             var tableRow = TableRow(this)
-            tableRow.layoutParams = (TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
+            tableRow.layoutParams = (TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
 
             //tableRow.setOnClickListener(this)
             /*tableRow.setOnClickListener { view ->
@@ -309,7 +309,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             textViewTargetCourse.setPadding(5,5,5,0)
             tableRow.addView(textViewTargetCourse)
 
-            tableLayout!!.addView(tableRow, TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
+            tableLayout!!.addView(tableRow, TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
 
         }
     }
@@ -327,10 +327,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         // get the TableRow
         if (view is TextView) {
-            var v = view as TextView
+            var v = view
             currentRow = v.parent as TableRow
         } else if (view is TableRow) {
-            currentRow = view as TableRow
+            currentRow = view
         }
 
         // get the 'id' field
