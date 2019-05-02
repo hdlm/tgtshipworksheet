@@ -9,8 +9,11 @@ import com.dlm.targetshipworksheet.R
 import com.dlm.targetshipworksheet.models.MarkerModel
 import android.text.Editable
 import android.text.TextUtils
+import android.text.TextWatcher
+import android.util.Log
 import android.widget.Spinner
 import com.dlm.targetshipworksheet.MainActivity
+import com.dlm.targetshipworksheet.utils.MaskWatcher
 import kotlinx.android.synthetic.main.activity_marker_details.*
 
 /**
@@ -39,7 +42,11 @@ class MarkerDetail : AppCompatActivity() {
 
         textViewId.text = marker?.id.toString()
         if(!TextUtils.isEmpty(marker?.time)) {  // cargar los valores de los campos correspondientes
+
             editTextTime.text = marker?.time?.toEditable()
+            //editTextTime.addTextChangedListener(MaskWatcher("##:##"))
+
+
             editTextOwnCourse.text = marker?.ownCourse.toString().toEditable()
             editTextOwnSpeed.text = marker?.ownSpeed.toString().toEditable()
             editTextTargetBearing.setText(marker?.targetBearing.toString())
@@ -70,6 +77,8 @@ class MarkerDetail : AppCompatActivity() {
             setResult(Activity.RESULT_CANCELED)
             finish()  // it a function to allowed an activity to stacking out
         }
+
+        editTextTime.addTextChangedListener( MaskWatcher("##:##") )
     }
 
     /** El metodo se encarga de seleccionar el item correpondiente al valor especificado */
