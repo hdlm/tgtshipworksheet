@@ -27,10 +27,9 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Time"
             android:maxLength="5"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" android:text="@string/label_time"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +40,7 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Own Course"
+            android:text="@string/label_owncourse"
             android:textSize="18sp"
             android:textStyle="bold"/>
     <EditText
@@ -54,7 +53,7 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Own Speed"
+            android:text="@string/label_ownspeed"
             android:textSize="18sp"
             android:textStyle="bold"/>
     <EditText
@@ -67,7 +66,7 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Target Bearing"
+            android:text="@string/label_targetbearing"
             android:textSize="18sp"
             android:textStyle="bold"/>
     <EditText
@@ -80,7 +79,7 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Target AOB"
+            android:text="@string/label_targetaob"
             android:textSize="18sp"
             android:textStyle="bold"/>
     <Spinner
@@ -92,7 +91,7 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Target Range"
+            android:text="@string/label_targetrange"
             android:textSize="18sp"
             android:textStyle="bold"/>
     <EditText
@@ -105,7 +104,7 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Target Speed"
+            android:text="@string/label_targetspeed"
             android:textSize="18sp"
             android:textStyle="bold"/>
     <EditText
@@ -118,7 +117,7 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Target Course"
+            android:text="@string/label_targetcourse"
             android:textSize="18sp"
             android:textStyle="bold"/>
     <EditText

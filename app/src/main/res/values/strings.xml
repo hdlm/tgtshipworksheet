@@ -11,6 +11,20 @@
     <string name="save_marker">Save</string>
     <string name="cancel_marker">Cancel</string>
     <string name="prompt_targetaob">Choose Target AOB</string>
+    <string name="label_time">Time*</string>
+    <string name="label_owncourse">Own Course</string>
+    <string name="label_ownspeed">Own Speed</string>
+    <string name="label_targetbearing">Target Bearing</string>
+    <string name="label_targetaob">Target AOB</string>
+    <string name="label_targetrange">Target Range</string>
+    <string name="label_targetspeed">Target Speed</string>
+    <string name="label_targetcourse">Target Course</string>
+    <string name="error_message_time" formatted="false">
+        <![CDATA[
+        Debe ingresar el <strong><font color=\'#c71585\'>Time</font></strong>
+        ]]>
+    </string>
+
 
     <string-array name="aob_arrays">
         <item>stbd</item>

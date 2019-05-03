@@ -8,6 +8,7 @@ import android.os.Bundle
 import com.dlm.targetshipworksheet.R
 import com.dlm.targetshipworksheet.models.MarkerModel
 import android.text.Editable
+import android.text.Html
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Log
@@ -18,6 +19,8 @@ import kotlinx.android.synthetic.main.activity_marker_details.*
 
 /**
  * La clase se encarga de crear / editar un marker o anotacion de una embarcacion detectada
+ *
+ * @see https://medium.com/google-developer-experts/android-strings-xml-things-to-remember-c155025bb8bb
  */
 class MarkerDetail : AppCompatActivity() {
 
@@ -85,7 +88,7 @@ class MarkerDetail : AppCompatActivity() {
     {
         if (value != null) {
             var adapter = spinner.adapter
-            for (pos in 0..adapter.count - 1) {
+            for (pos in 0 until adapter.count-1) {
                 if (adapter.getItem(pos).toString() == value)
                     spinner.setSelection(pos)
             }
@@ -98,7 +101,7 @@ class MarkerDetail : AppCompatActivity() {
         var resp = true
 
         if (TextUtils.isEmpty(editTextTime.text)) {
-            editTextTime.error = "Debe ingresar el tiempo"
+            editTextTime.error = Html.fromHtml(getString(R.string.error_message_time))
             resp = false
         }
 
