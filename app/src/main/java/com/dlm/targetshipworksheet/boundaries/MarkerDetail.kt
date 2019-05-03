@@ -42,10 +42,7 @@ class MarkerDetail : AppCompatActivity() {
 
         textViewId.text = marker?.id.toString()
         if(!TextUtils.isEmpty(marker?.time)) {  // cargar los valores de los campos correspondientes
-
             editTextTime.text = marker?.time?.toEditable()
-            //editTextTime.addTextChangedListener(MaskWatcher("##:##"))
-
             editTextOwnCourse.text = marker?.ownCourse.toString().toEditable()
             editTextOwnSpeed.text = marker?.ownSpeed.toString().toEditable()
             editTextTargetBearing.setText(marker?.targetBearing.toString())
@@ -55,21 +52,24 @@ class MarkerDetail : AppCompatActivity() {
             editTextTargetCourse.setText(if (marker!!.targetCourse == -1) "unknown" else marker.targetCourse.toString())
         }
         buttonGuardar.setOnClickListener {
-            if (marker != null) {
-                marker.time = editTextTime.text.toString()
-                marker.ownCourse = editTextOwnCourse.text.toString().toInt()
-                marker.ownSpeed = editTextOwnSpeed.text.toString().toInt()
-                marker.targetBearing = editTextTargetBearing.text.toString().toInt()
-                marker.targetAob = spinnerTargetAob.selectedItem.toString()
-                marker.targetRange = editTextTargetRange.text.toString().toInt()
-                marker.targetSpeed = editTextTargetSpeed.text.toString().toInt()
-                marker.targetCourse = editTextTargetCourse.text.toString().toInt()
+            if (validateFields()) {  // campos requeridos llenados satisfactoriamente
+                if (marker != null) {
+                    marker.time = editTextTime.text.toString()
+                    marker.ownCourse = editTextOwnCourse.text.toString().toInt()
+                    marker.ownSpeed = editTextOwnSpeed.text.toString().toInt()
+                    marker.targetBearing = editTextTargetBearing.text.toString().toInt()
+                    marker.targetAob = spinnerTargetAob.selectedItem.toString()
+                    marker.targetRange = editTextTargetRange.text.toString().toInt()
+                    marker.targetSpeed = editTextTargetSpeed.text.toString().toInt()
+                    marker.targetCourse = editTextTargetCourse.text.toString().toInt()
 
-                markerModel.save(marker)
+                    markerModel.save(marker)
+                }
+                setResult(Activity.RESULT_OK)
+                finish()  // it a function to allowed an activity to stacking out
             }
-
-            setResult(Activity.RESULT_OK)
-            finish()  // it a function to allowed an activity to stacking out
+            else
+                return@setOnClickListener
         }
 
         buttonCancelar.setOnClickListener {
@@ -90,6 +90,20 @@ class MarkerDetail : AppCompatActivity() {
                     spinner.setSelection(pos)
             }
         }
+    }
+
+    /** El metodo se encarga de validar los campos obligatorios */
+    private fun validateFields(): Boolean
+    {
+        var resp = true
+
+        if (TextUtils.isEmpty(editTextTime.text)) {
+            editTextTime.error = "Debe ingresar el tiempo"
+            resp = false
+        }
+
+        return resp
+
     }
 
 }
