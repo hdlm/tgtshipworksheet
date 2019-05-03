@@ -28,13 +28,16 @@ class MaskWatcher(mask: String) : TextWatcher {
         isRunning = true
 
         var editableLength = editable!!.length
-        if (editableLength < mask.length) {
+        if (editableLength < mask.length)
             if (mask.elementAt(editableLength) != '#' ) {
                 editable.append(mask.elementAt(editableLength-1))
             } else if (mask.elementAt(editableLength-1) != '#') {
                 editable.insert(editableLength-1, mask, editableLength-1, editableLength)
             }
+        } else if (editableLength > mask.length){  // se ha excedido la longitud de la 'mask'
+            editable.delete(editableLength-1, editableLength)
         }
+
         isRunning = false
     }
 

@@ -46,7 +46,6 @@ class MarkerDetail : AppCompatActivity() {
             editTextTime.text = marker?.time?.toEditable()
             //editTextTime.addTextChangedListener(MaskWatcher("##:##"))
 
-
             editTextOwnCourse.text = marker?.ownCourse.toString().toEditable()
             editTextOwnSpeed.text = marker?.ownSpeed.toString().toEditable()
             editTextTargetBearing.setText(marker?.targetBearing.toString())
