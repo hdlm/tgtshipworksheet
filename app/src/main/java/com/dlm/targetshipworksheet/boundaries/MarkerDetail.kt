@@ -58,13 +58,19 @@ class MarkerDetail : AppCompatActivity() {
             if (validateFields()) {  // campos requeridos llenados satisfactoriamente
                 if (marker != null) {
                     marker.time = editTextTime.text.toString()
-                    marker.ownCourse = editTextOwnCourse.text.toString().toInt()
-                    marker.ownSpeed = editTextOwnSpeed.text.toString().toInt()
-                    marker.targetBearing = editTextTargetBearing.text.toString().toInt()
+                    if (!TextUtils.isEmpty(editTextOwnCourse.text)) marker.ownCourse = editTextOwnCourse.text.toString().toInt()
+                    else marker.ownCourse = null
+                    if (!TextUtils.isEmpty(editTextOwnSpeed.text)) marker.ownSpeed = editTextOwnSpeed.text.toString().toInt()
+                    else marker.ownSpeed = null
+                    if (!TextUtils.isEmpty(editTextTargetBearing.text)) marker.targetBearing = editTextTargetBearing.text.toString().toInt()
+                    else marker.targetBearing = null
                     marker.targetAob = spinnerTargetAob.selectedItem.toString()
-                    marker.targetRange = editTextTargetRange.text.toString().toInt()
-                    marker.targetSpeed = editTextTargetSpeed.text.toString().toInt()
-                    marker.targetCourse = editTextTargetCourse.text.toString().toInt()
+                    if (!TextUtils.isEmpty(editTextTargetRange.text)) marker.targetRange = editTextTargetRange.text.toString().toInt()
+                    marker.targetRange = null
+                    if (!TextUtils.isEmpty(editTextTargetSpeed.text)) marker.targetSpeed = editTextTargetSpeed.text.toString().toInt()
+                    marker.targetSpeed = null
+                    if (!TextUtils.isEmpty(editTextTargetCourse.text)) marker.targetCourse = editTextTargetCourse.text.toString().toInt()
+                    else marker.targetCourse = null
 
                     markerModel.save(marker)
                 }

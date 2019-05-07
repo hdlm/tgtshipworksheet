@@ -1,5 +1,6 @@
 package com.dlm.targetshipworksheet.entities
 
+
 /**
  * The entity represent a Ship mark
  */
@@ -64,16 +65,17 @@ class Marker {
             var targetCourse : Int? = null
 
             for(idx in 0..propList.size-1) {
+                var a = propList[idx]
                 when (idx) {
                     0 -> id = propList[idx].toInt()
                     1 -> time = propList[idx]
-                    2 -> ownCourse = propList[idx].toInt()
-                    3 -> ownSpeed = propList[idx].toInt()
-                    4 -> targetBearing = propList[idx].toInt()
+                    2 -> try { ownCourse = propList[idx].toInt() } catch(ignore: java.lang.NumberFormatException) { }
+                    3 -> try { ownSpeed = propList[idx].toInt() } catch(ignore: java.lang.NumberFormatException) { }
+                    4 -> try { targetBearing = propList[idx].toInt() } catch(ignore: java.lang.NumberFormatException) { }
                     5 -> targetAob = propList[idx]
-                    6 -> targetRange = propList[idx].toInt()
-                    7 -> targetSpeed = propList[idx].toInt()
-                    8 -> targetCourse = propList[idx].toInt()
+                    6 -> try { targetRange = propList[idx].toInt() } catch(ignore: java.lang.NumberFormatException) { }
+                    7 -> try { targetSpeed =  propList[idx].toInt() } catch(ignore: java.lang.NumberFormatException) { }
+                    8 -> try {targetCourse = propList[idx].toInt() } catch(ignore: java.lang.NumberFormatException) { }
                 }
             }
             var marker = Marker(id, time, ownCourse, ownSpeed, targetBearing, targetAob, targetRange, targetSpeed, targetCourse)
