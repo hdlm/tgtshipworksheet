@@ -1,4 +1,4 @@
-package com.dlm.targetshipworksheet.entities
+package com.dlm.targetshipworksheet.model
 
 
 /**
@@ -78,7 +78,17 @@ class Marker {
                     8 -> try {targetCourse = propList[idx].toInt() } catch(ignore: java.lang.NumberFormatException) { }
                 }
             }
-            var marker = Marker(id, time, ownCourse, ownSpeed, targetBearing, targetAob, targetRange, targetSpeed, targetCourse)
+            var marker = Marker(
+                id,
+                time,
+                ownCourse,
+                ownSpeed,
+                targetBearing,
+                targetAob,
+                targetRange,
+                targetSpeed,
+                targetCourse
+            )
             return marker
         }
     }

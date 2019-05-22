@@ -1,17 +1,14 @@
-package com.dlm.targetshipworksheet.boundaries
+package com.dlm.targetshipworksheet.ui
 
 import android.app.Activity
 import android.content.Context
-import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.dlm.targetshipworksheet.R
-import com.dlm.targetshipworksheet.models.MarkerModel
+import com.dlm.targetshipworksheet.model.MarkerModel
 import android.text.Editable
 import android.text.Html
 import android.text.TextUtils
-import android.text.TextWatcher
-import android.util.Log
 import android.widget.Spinner
 import com.dlm.targetshipworksheet.MainActivity
 import com.dlm.targetshipworksheet.utils.MaskWatcher

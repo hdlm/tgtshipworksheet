@@ -10,12 +10,12 @@ import android.widget.TableRow
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import com.dlm.targetshipworksheet.boundaries.MarkerDetail
+import com.dlm.targetshipworksheet.ui.MarkerDetail
 import android.content.Intent
 import android.util.Log
 import android.view.View
-import com.dlm.targetshipworksheet.entities.Marker
-import com.dlm.targetshipworksheet.models.MarkerModel
+import com.dlm.targetshipworksheet.model.Marker
+import com.dlm.targetshipworksheet.model.MarkerModel
 
 /**
 La clase representa el <italic>MainActivity</italic> de la app

@@ -5,12 +5,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
         android:layout_height="match_parent" xmlns:tools="http://schemas.android.com/tools"
         android:layout_marginLeft="8dp"
-        tools:context=".boundaries.MarkerDetail">
+        tools:context=".ui.MarkerDetail">
 
 <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        tools:context=".boundaries.MarkerDetail" android:orientation="vertical" android:id="@+id/id">
+        tools:context=".ui.MarkerDetail" android:orientation="vertical" android:id="@+id/id">
 
     <TextView
             android:layout_width="match_parent"
