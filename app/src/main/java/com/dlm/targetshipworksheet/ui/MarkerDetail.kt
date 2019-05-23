@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.text.HtmlCompat
 import com.dlm.targetshipworksheet.R
 import com.dlm.targetshipworksheet.model.MarkerModel
 import android.text.Editable
@@ -104,7 +105,7 @@ class MarkerDetail : AppCompatActivity() {
         var resp = true
 
         if (TextUtils.isEmpty(editTextTime.text)) {
-            editTextTime.error = Html.fromHtml(getString(R.string.error_message_time))
+            editTextTime.error = HtmlCompat.fromHtml(getString(R.string.error_message_time), HtmlCompat.FROM_HTML_MODE_LEGACY)
             resp = false
         }
 

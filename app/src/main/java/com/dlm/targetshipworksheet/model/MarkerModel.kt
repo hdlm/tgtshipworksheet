@@ -3,8 +3,13 @@ package com.dlm.targetshipworksheet.model
 import android.content.SharedPreferences
 
 /**
- * La clase representa el modelo correspondiente a los <code>Marker</code> registrados
- * <p>La persistencia de los datos se realiza a traves de un <code>SharedPreferences</code>.</p>
+ * The class represents the model corresponding to the <code>Marker</code> registered 
+ * <p>The persistence of the data is done through a <code>SharedPreferences</code>. </p>
+ * <p>The class is responsible for recovering and saving the records of markers. </p>
+ * @author hdelamano
+ * @version 1.0
+ * <p>Creation of the class</p>
+ * @see Marker
  */
 class MarkerModel (var myPref: SharedPreferences){
 
@@ -12,7 +17,7 @@ class MarkerModel (var myPref: SharedPreferences){
         this.myPref = myPref
     }
 
-    /** El metodo retorna todos los marker registrados */
+    /** The method returns all registered marker */
     fun findAll() : List<Marker> {
         var lst: List<Marker>    // the List it is immutable by default
 
@@ -35,58 +40,62 @@ class MarkerModel (var myPref: SharedPreferences){
         return lst
     }
 
-    // El metodo es utilizado solo para propositos de prueba
-    fun findAllDataDemo() : List<Marker> {
+    // The method is used exclusively for test purposes
+    fun findAllDataDemo() : ArrayList<Marker> {
         var markers: List<Marker> =  listOf(
-            Marker(1, "01:00", 90, 0, 15, "port", 8000, 5, -1),
-            Marker(2, "01:10", 90, 0, 25, "port", 7500, 5, -1),
-            Marker(3, "01:20", 90, 0, 30, "port", 7400, 5, -1),
-            Marker(4, "01:30", 90, 0, 35, "port", 7300, 5, -1),
-            Marker(5, "01:40", 90, 0, 40, "port", 7200, 5, -1),
-            Marker(6, "01:50", 90, 0, 45, "port", 7100, 5, -1),
-            Marker(7, "02:00", 90, 0, 50, "port", 7000, 5, -1)
+            Marker(1, "01:00", 90, 0, 15, "port", 8000, 5, -1, "unknown"),
+            Marker(2, "01:10", 90, 0, 25, "port", 7500, 5, -1, "unknown"),
+            Marker(3, "01:20", 90, 0, 30, "port", 7400, 5, -1, "unknown"),
+            Marker(4, "01:30", 90, 0, 35, "port", 7300, 5, -1, "unknown"),
+            Marker(5, "01:40", 90, 0, 40, "port", 7200, 5, -1, "unknown"),
+            Marker(6, "01:50", 90, 0, 45, "port", 7100, 5, -1, "unknown"),
+            Marker(7, "02:00", 90, 0, 50, "port", 7000, 5, -1, "unknown")
         )
-        return markers
+        var list: ArrayList<Marker> = ArrayList<Marker>()
+        for (item in markers) {
+            list.add(item)
+        }
+        return list
     }
 
-    // El metodo es utilizado llenar celdas en blanco
+    // The method is used to fill blank cells
     fun findAllDataBlank() : List<Marker> {
         var markers: List<Marker> = listOf(
-            Marker(1, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(2, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(3, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(4, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(5, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(6, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(7, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(8, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(9, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(10, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(11, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(12, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(13, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(14, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(15, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(16, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(17, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(18, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(19, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(20, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(21, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(22, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(23, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(24, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(25, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(26, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(27, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(28, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(29, "", 0, 0, 0, "port", 0, 0, -1),
-            Marker(30, "", 0, 0, 0, "port", 0, 0, -1)
+            Marker(1, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(2, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(3, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(4, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(5, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(6, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(7, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(8, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(9, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(10, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(11, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(12, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(13, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(14, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(15, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(16, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(17, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(18, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(19, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(20, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(21, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(22, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(23, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(24, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(25, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(26, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(27, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(28, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(29, "", 0, 0, 0, "port", 0, 0, -1, "unknown"),
+            Marker(30, "", 0, 0, 0, "port", 0, 0, -1, "unknown")
         )
         return markers
     }
 
-    /** El metodo se encarga de buscar el marker correspondiente al 'id' especificado */
+    /** The method is responsible for finding the marker corresponding to the specified 'id' */
     fun find(id : Int) : Marker? {
         for(marker in findAll()) {
             if(id == marker.id)  return marker
@@ -94,7 +103,7 @@ class MarkerModel (var myPref: SharedPreferences){
         return null
     }
 
-    /** El metodo se encarga de la persistencia del registro */
+    /** The method keeps the records in a persistent way */
     fun save(marker: Marker) {
 
         var editor: SharedPreferences.Editor = myPref.edit()

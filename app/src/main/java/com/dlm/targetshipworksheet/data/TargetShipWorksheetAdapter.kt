@@ -10,7 +10,7 @@ import android.widget.Toast
 import com.dlm.targetshipworksheet.R
 import com.dlm.targetshipworksheet.model.Marker
 
-class TargetShipWorksheetAdapter (private val list: ArrayList<Marker>,
+class TargetShipWorksheetAdapter (private val list: List<Marker>,
                                   private val context: Context): RecyclerView.Adapter<TargetShipWorksheetAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): TargetShipWorksheetAdapter.ViewHolder {
         //Create our view from our xml file
@@ -49,9 +49,10 @@ class TargetShipWorksheetAdapter (private val list: ArrayList<Marker>,
             targetRange.text = item.targetRange.toString()
             targetSpeed.text = item.targetSpeed.toString()
             targetCourse.text = item.targetCourse.toString()
+            targetName.text = item.targetName
 
             itemView.setOnClickListener {
-                Toast.makeText(context, id.text + " " + time.text, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, item.id.toString() + " " + time.text, Toast.LENGTH_SHORT).show()
             }
         }
     }
