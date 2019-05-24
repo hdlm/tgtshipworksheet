@@ -41,7 +41,7 @@ class MarkerModel (var myPref: SharedPreferences){
     }
 
     // The method is used exclusively for test purposes
-    fun findAllDataDemo() : ArrayList<Marker> {
+    fun findAllDataDemo() : List<Marker> {
         var markers: List<Marker> =  listOf(
             Marker(1, "01:00", 90, 0, 15, "port", 8000, 5, -1, "unknown"),
             Marker(2, "01:10", 90, 0, 25, "port", 7500, 5, -1, "unknown"),
@@ -49,13 +49,21 @@ class MarkerModel (var myPref: SharedPreferences){
             Marker(4, "01:30", 90, 0, 35, "port", 7300, 5, -1, "unknown"),
             Marker(5, "01:40", 90, 0, 40, "port", 7200, 5, -1, "unknown"),
             Marker(6, "01:50", 90, 0, 45, "port", 7100, 5, -1, "unknown"),
-            Marker(7, "02:00", 90, 0, 50, "port", 7000, 5, -1, "unknown")
+            Marker(7, "02:10", 90, 0, 50, "port", 7000, 5, -1, "unknown"),
+            Marker(8, "02:20", 90, 0, 15, "port", 8000, 5, -1, "unknown"),
+            Marker(9, "02:30", 90, 0, 25, "port", 7500, 5, -1, "unknown"),
+            Marker(10, "02:40", 90, 0, 30, "port", 7400, 5, -1, "unknown"),
+            Marker(11, "02:50", 90, 0, 35, "port", 7300, 5, -1, "unknown"),
+            Marker(12, "03:00", 90, 0, 40, "port", 7200, 5, -1, "unknown"),
+            Marker(13, "03:10", 90, 0, 45, "port", 7100, 5, -1, "unknown"),
+            Marker(14, "03:20", 90, 0, 50, "port", 7000, 5, -1, "unknown")
         )
-        var list: ArrayList<Marker> = ArrayList<Marker>()
+/*        var list: ArrayList<Marker> = ArrayList<Marker>()
         for (item in markers) {
             list.add(item)
         }
-        return list
+        */
+        return markers
     }
 
     // The method is used to fill blank cells

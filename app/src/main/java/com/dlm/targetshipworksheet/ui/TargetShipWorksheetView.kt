@@ -25,20 +25,23 @@ class TargetShipWorksheetView: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.target_ship_worksheet_view)
 
-        // Load data
+        // init model and adapter
         markerModel = MarkerModel(getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE))
-        markerList = markerModel!!.findAllDataDemo()
-
+        markerList = ArrayList<Marker>()
         layoutManager = LinearLayoutManager(this)
         adapter = TargetShipWorksheetAdapter(markerList!!, this)
 
         // set-up RecyclerView
+        recyclerview_worksheet.setHasFixedSize(true)
         recyclerview_worksheet.layoutManager = layoutManager
         recyclerview_worksheet.adapter = adapter
 
+        // load data
+        for (item in markerModel!!.findAllDataDemo()) {
+            markerList!!.add(item)
+        }
+        adapter!!.notifyDataSetChanged()
+
     }
-
-
-
 
 }
