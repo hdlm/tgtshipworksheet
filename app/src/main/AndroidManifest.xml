@@ -12,6 +12,8 @@
         <activity android:name=".ui.MarkerDetail">
         </activity>
         <activity android:name=".ui.TargetShipWorksheetView">
+        </activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

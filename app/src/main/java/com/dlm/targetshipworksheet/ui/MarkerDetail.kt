@@ -2,13 +2,13 @@ package com.dlm.targetshipworksheet.ui
 
 import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.text.HtmlCompat
 import com.dlm.targetshipworksheet.R
 import com.dlm.targetshipworksheet.model.MarkerModel
 import android.text.Editable
-import android.text.Html
 import android.text.TextUtils
 import android.widget.Spinner
 import com.dlm.targetshipworksheet.MainActivity
@@ -16,7 +16,11 @@ import com.dlm.targetshipworksheet.utils.MaskWatcher
 import kotlinx.android.synthetic.main.activity_marker_details.*
 
 /**
- * La clase se encarga de crear / editar un marker o anotacion de una embarcacion detectada
+ * The class is responsible for creating / editing a marker or annotation of a vessel detected
+ *
+ * @version 1.1 2019-06-07
+ * @author hdelamano
+ * <p>Adjustments were made for the change of properties of the {@link com.dlm.targetshipworksheet.model.Marker marker} class </p>
  *
  * @see https://medium.com/google-developer-experts/android-strings-xml-things-to-remember-c155025bb8bb
  */
@@ -28,50 +32,56 @@ class MarkerDetail : AppCompatActivity() {
     val TITLE = "Marker Detail"
     val PREFS_NAME = MainActivity.prefsName()
 
+    var prefs : SharedPreferences? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_marker_details)
 
-        var myPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
         setTitle(TITLE)
         var intent = intent
         var id = intent.getStringExtra("id")
-        var markerModel = MarkerModel(myPref)
-        var marker = markerModel.find(id.toInt())
+        var markerModel = MarkerModel(prefs!!)
+        var marker = markerModel.find(id)
 
         textViewId.text = marker?.id.toString()
         if(!TextUtils.isEmpty(marker?.time)) {  // cargar los valores de los campos correspondientes
             editTextTime.text = marker?.time?.toEditable()
-            editTextOwnCourse.text = marker?.ownCourse.toString().toEditable()
-            editTextOwnSpeed.text = marker?.ownSpeed.toString().toEditable()
-            editTextTargetBearing.setText(marker?.targetBearing.toString())
-            selectSpinnerItemByValue(spinnerTargetAob, marker?.targetAob)
-            editTextTargetRange.setText(marker?.targetRange.toString())
-            editTextTargetSpeed.setText(marker?.targetSpeed.toString())
-            editTextTargetCourse.setText(if (marker!!.targetCourse == -1) "unknown" else marker.targetCourse.toString())
+            editTextOwnCourse.text = marker?.ownCourse!!.toEditable()
+            editTextOwnSpeed.text = marker.ownSpeed!!.toEditable()
+            editTextTargetBearing.setText(marker.targetBearing)
+            selectSpinnerItemByValue(spinnerTargetAob, marker.targetAob)
+            editTextTargetRange.setText(marker.targetRange)
+            editTextTargetSpeed.setText(marker.targetSpeed)
+            editTextTargetCourse.setText(marker.targetCourse)
+
+        } else {   // ajustar al siguiente ID disponible
+            textViewId.text = markerModel.nextAvailableId(markerModel.findAll()).toString()
+
         }
         buttonGuardar.setOnClickListener {
             if (validateFields()) {  // campos requeridos llenados satisfactoriamente
-                if (marker != null) {
-                    marker.time = editTextTime.text.toString()
-                    if (!TextUtils.isEmpty(editTextOwnCourse.text)) marker.ownCourse = editTextOwnCourse.text.toString().toInt()
-                    else marker.ownCourse = null
-                    if (!TextUtils.isEmpty(editTextOwnSpeed.text)) marker.ownSpeed = editTextOwnSpeed.text.toString().toInt()
-                    else marker.ownSpeed = null
-                    if (!TextUtils.isEmpty(editTextTargetBearing.text)) marker.targetBearing = editTextTargetBearing.text.toString().toInt()
-                    else marker.targetBearing = null
-                    marker.targetAob = spinnerTargetAob.selectedItem.toString()
-                    if (!TextUtils.isEmpty(editTextTargetRange.text)) marker.targetRange = editTextTargetRange.text.toString().toInt()
-                    marker.targetRange = null
-                    if (!TextUtils.isEmpty(editTextTargetSpeed.text)) marker.targetSpeed = editTextTargetSpeed.text.toString().toInt()
-                    marker.targetSpeed = null
-                    if (!TextUtils.isEmpty(editTextTargetCourse.text)) marker.targetCourse = editTextTargetCourse.text.toString().toInt()
-                    else marker.targetCourse = null
+                var marker = markerModel.emptyMarker()
+                marker.id = textViewId.text.toString().toInt()
+                marker.time = editTextTime.text.toString()
+                if (!TextUtils.isEmpty(editTextOwnCourse.text)) marker.ownCourse = editTextOwnCourse.text.toString()
+                else marker.ownCourse = ""
+                if (!TextUtils.isEmpty(editTextOwnSpeed.text)) marker.ownSpeed = editTextOwnSpeed.text.toString()
+                else marker.ownSpeed = ""
+                if (!TextUtils.isEmpty(editTextTargetBearing.text)) marker.targetBearing = editTextTargetBearing.text.toString()
+                else marker.targetBearing = ""
+                marker.targetAob = spinnerTargetAob.selectedItem.toString()
+                if (!TextUtils.isEmpty(editTextTargetRange.text)) marker.targetRange = editTextTargetRange.text.toString()
+                marker.targetRange = ""
+                if (!TextUtils.isEmpty(editTextTargetSpeed.text)) marker.targetSpeed = editTextTargetSpeed.text.toString()
+                marker.targetSpeed = ""
+                if (!TextUtils.isEmpty(editTextTargetCourse.text)) marker.targetCourse = editTextTargetCourse.text.toString()
+                else marker.targetCourse = ""
 
-                    markerModel.save(marker)
-                }
+                markerModel.save(marker)
                 setResult(Activity.RESULT_OK)
                 finish()  // it a function to allowed an activity to stacking out
             }

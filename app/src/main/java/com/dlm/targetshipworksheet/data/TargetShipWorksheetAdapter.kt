@@ -10,6 +10,14 @@ import android.widget.Toast
 import com.dlm.targetshipworksheet.R
 import com.dlm.targetshipworksheet.model.Marker
 
+/**
+ * The class represent the Adapter for the <code>RecycledView</code>
+ * <p>The class is not being used, only for test purposes</p>
+ *
+ * @version 1.1, 2019-06-07
+ * @author hdelamano
+ * <p>Testing the look & feel</p>
+ */
 class TargetShipWorksheetAdapter (private val list: List<Marker>,
                                   private val context: Context): RecyclerView.Adapter<TargetShipWorksheetAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): TargetShipWorksheetAdapter.ViewHolder {
@@ -42,13 +50,13 @@ class TargetShipWorksheetAdapter (private val list: List<Marker>,
 
             id.text = item.id.toString()
             time.text = item.time
-            ownCourse.text = item.ownCourse.toString()
-            ownSpeed.text = item.ownSpeed.toString()
-            targetBearing.text = item.targetBearing.toString()
+            ownCourse.text = item.ownCourse
+            ownSpeed.text = item.ownSpeed
+            targetBearing.text = item.targetBearing
             targetAob.text = item.targetAob
-            targetRange.text = item.targetRange.toString()
-            targetSpeed.text = item.targetSpeed.toString()
-            targetCourse.text = item.targetCourse.toString()
+            targetRange.text = item.targetRange
+            targetSpeed.text = item.targetSpeed
+            targetCourse.text = item.targetCourse
             targetName.text = item.targetName
 
             itemView.setOnClickListener {

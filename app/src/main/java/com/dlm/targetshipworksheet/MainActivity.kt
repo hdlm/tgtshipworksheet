@@ -12,23 +12,32 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import com.dlm.targetshipworksheet.ui.MarkerDetail
 import android.content.Intent
+import android.content.SharedPreferences
 import android.util.Log
 import android.view.View
 import com.dlm.targetshipworksheet.model.Marker
 import com.dlm.targetshipworksheet.model.MarkerModel
 
 /**
-La clase representa el <italic>MainActivity</italic> de la app
-<p>La app se encarga de llevar los registros de los contactos detectados en
- el Target Ship Worksheet.</p>
-<p>La UI emula un componente DataGrid para desplegar los datos</p>
-@see http://learningprogramming.net/mobile/android/create-datatable-in-android/
+ *
+ * The class represents the <italic> MainActivity</italic> of the app
+ * <p>The app is responsible for keeping track of the contacts detected in the <italic>Target Ship Worksheet</italic>.</p>
+ * <p>The UI emulates a DataGrid component to display the data.</p>
+ * @see http://learningprogramming.net/mobile/android/create-datatable-in-android/
+ *
+ * @version 1.1, 2019-06-07
+ * @author hdelamano
+ * <p>The necessary adjustments were made for the changes of properties in the  {@link com.dlm.targetshipworksheet.model.Marker marker} class, as well as modification in the {@link #fillData fillData} methods.</p>
  */
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    private var tableLayout : TableLayout? = null
-    val REQUEST_CODE = 1
     val PREFS_NAME = MainActivity.prefsName()
+    val REQUEST_CODE = 1
+
+    private var tableLayout : TableLayout? = null
+    private var prefs : SharedPreferences? = null
+
+
 
     companion object {
         fun prefsName(): String = "TargetShipWorksheetPrefs";
@@ -38,11 +47,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+
         //testSaveLoadMarker(Marker(1, "12:00",90, 1, 45, "stdb", 10000, 8, 270 ))
-        initView()
+        //
+        // INIT VIEW
+        //
+        tableLayout = tableLayoutMark
+
         loadData()
     }
 
+    /**
+     * Return from the Activity called
+     */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -56,15 +74,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun initView() : Unit {
-        tableLayout = tableLayoutMark
-    }
 
     private fun loadData() : Unit {
         createColumns()
-        fillData()
 
+        var markerModel = MarkerModel(prefs!!)
+        fillData (markerModel.findAll())
     }
+
 
     /**
      * El metodo muestra el encabezado de la la hoja
@@ -219,25 +236,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     /**
      * El metodo se encarga de llenar la hoja con los registros almacenados
+     * @param list collection of markers
      */
-    private fun fillData() : Unit {
+    private fun fillData(list : List<Marker>) : Unit {
 
-        var markerModel = MarkerModel(getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE))
-
-        for(marker in markerModel.findAll()) {
+        for(marker in list) {
             var tableRow = TableRow(this)
             tableRow.layoutParams = (TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
-
-            //tableRow.setOnClickListener(this)
-            /*tableRow.setOnClickListener { view ->
-                var currentRow : TableRow = view as TableRow
-                var textViewId : TextView = currentRow.getChildAt(0) as TextView
-                var sId = textViewId.text.toString()
-                //Toast.makeText(applicationContext, sId, Toast.LENGTH_LONG).show()
-                var intent = Intent(this, MarkerDetail::class.java)
-                intent.putExtra("id", sId)
-                startActivityForResult(intent, REQUEST_CODE)
-            }*/
 
             // Id Column
             var textViewId = TextView(this)
@@ -246,7 +251,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             textViewId.setPadding(5,5,5,0)
             textViewId.setOnClickListener(this)
             tableRow.addView(textViewId)
-
 
             // Time Column
             var textViewTime = TextView(this)
@@ -258,7 +262,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             // Own Course Column
             var textViewOwnCourse = TextView(this)
-            textViewOwnCourse.text = marker.ownCourse.toString()
+            textViewOwnCourse.text = marker.ownCourse
             textViewOwnCourse.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
             textViewOwnCourse.setPadding(5,5,5,0)
             textViewOwnCourse.setOnClickListener(this)
@@ -266,7 +270,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             // Own Speed Column
             var textViewOwnSpeed = TextView(this)
-            textViewOwnSpeed.text = marker.ownSpeed.toString()
+            textViewOwnSpeed.text = marker.ownSpeed
             textViewOwnSpeed.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
             textViewOwnSpeed.setPadding(5,5,5,0)
             textViewOwnSpeed.setOnClickListener(this)
@@ -274,7 +278,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             // Target Bearing Column
             var textViewTargetBearing = TextView(this)
-            textViewTargetBearing.text = marker.targetBearing.toString()
+            textViewTargetBearing.text = marker.targetBearing
             textViewTargetBearing.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
             textViewTargetBearing.setPadding(5,5,5,0)
             textViewTargetBearing.setOnClickListener(this)
@@ -290,24 +294,31 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             // Target Range Column
             var textViewTargetRange = TextView(this)
-            textViewTargetRange.text = marker.targetRange.toString()
+            textViewTargetRange.text = marker.targetRange
             textViewTargetRange.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
             textViewTargetRange.setPadding(5,5,5,0)
             tableRow.addView(textViewTargetRange)
 
             // Target Speed Column
             textViewId = TextView(this)
-            textViewId.text = marker.targetSpeed.toString()
+            textViewId.text = marker.targetSpeed
             textViewId.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
             textViewId.setPadding(5,5,5,0)
             tableRow.addView(textViewId)
 
             // Target Course Column
             var textViewTargetCourse = TextView(this)
-            textViewTargetCourse.text = if(marker.targetCourse == -1) "unknown" else marker.targetCourse.toString()
+            textViewTargetCourse.text = marker.targetCourse
             textViewTargetCourse.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
             textViewTargetCourse.setPadding(5,5,5,0)
             tableRow.addView(textViewTargetCourse)
+
+            // Ship Name
+            var textViewShipName = TextView(this)
+            textViewShipName.text = marker.targetName
+            textViewShipName.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
+            textViewShipName.setPadding(5,5,5,0)
+            tableRow.addView(textViewShipName)
 
             tableLayout!!.addView(tableRow, TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
 
@@ -335,7 +346,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         // get the 'id' field
         var textViewId: TextView = currentRow!!.getChildAt(0) as TextView
-        var sId = textViewId.text.toString()
+        var sId = textViewId.text
 
         // passing data between activities
         var intent = Intent(this, MarkerDetail::class.java)
