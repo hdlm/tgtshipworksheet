@@ -6,6 +6,7 @@ import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.StaggeredGridLayoutManager
 import com.dlm.targetshipworksheet.MainActivity
 import com.dlm.targetshipworksheet.R
 import com.dlm.targetshipworksheet.data.TargetShipWorksheetAdapter
@@ -28,7 +29,10 @@ class TargetShipWorksheetView: AppCompatActivity() {
         // init model and adapter
         markerModel = MarkerModel(getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE))
         markerList = ArrayList<Marker>()
-        layoutManager = LinearLayoutManager(this)
+        var lm  = StaggeredGridLayoutManager(9,StaggeredGridLayoutManager.VERTICAL)
+        lm.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
+        layoutManager = lm
+
         adapter = TargetShipWorksheetAdapter(markerList!!, this)
 
         // set-up RecyclerView
