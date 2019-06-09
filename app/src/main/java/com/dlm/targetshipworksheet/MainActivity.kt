@@ -27,7 +27,8 @@ import com.dlm.targetshipworksheet.model.MarkerModel
  *
  * @version 1.1, 2019-06-07
  * @author hdelamano
- * <p>The necessary adjustments were made for the changes of properties in the  {@link com.dlm.targetshipworksheet.model.Marker marker} class, as well as modification in the {@link #fillData fillData} methods.</p>
+ * <p>The necessary adjustments were made for the changes of properties in the [marker][com.dlm.targetshipworksheet.model.Marker]
+ * class, as well as modification in the [fillData] methods.</p>
  */
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 

@@ -24,9 +24,9 @@ import kotlinx.android.synthetic.main.activity_marker_details.*
  *
  * @version 1.1, 2019-06-07
  * @author hdelamano
- * <p>Adjustments were made for the change of properties of the {@link com.dlm.targetshipworksheet.model.Marker marker} class </p>
+ * <p>Adjustments were made for the change of properties of the [com.dlm.targetshipworksheet.model.Marker] class </p>
  *
- * @see https://medium.com/google-developer-experts/android-strings-xml-things-to-remember-c155025bb8bb
+ * @see [source](https://medium.com/google-developer-experts/android-strings-xml-things-to-remember-c155025bb8bb)
  */
 class MarkerDetail : AppCompatActivity() {
 

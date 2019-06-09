@@ -10,11 +10,11 @@ import android.text.TextUtils
  *
  * @version 1.2, 2019-06-08
  * @author hdelamano
- * <p>Fue corregida la busqueda por {@link com.dlm.targetshipworksheet.model.MarkerModel#find id}.</p>
+ * <p>Fue corregida la busqueda por [id][com.dlm.targetshipworksheet.model.MarkerModel.find].</p>
  *
  * @version 1.1, 2019-06-07
  * @author hdelamano
- * <p>Adjustments were made for the change of properties of the {@link com.dlm.targetshipworksheet.model.Marker marker} class and refinement in several methods</p>
+ * <p>Adjustments were made for the change of properties of the [marker][com.dlm.targetshipworksheet.model.Marker] class and refinement in several methods</p>
  *
  * @version 1.0
  * @author hdelamano
