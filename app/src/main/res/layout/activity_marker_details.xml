@@ -127,25 +127,28 @@
             android:ems="10"
             android:id="@+id/editTextTargetCourse" android:hint="@string/hint_targetcourse"/>
 
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" >
 
         <Button
-                android:text="@string/save_marker"
-                android:layout_width="120dp"
-                android:layout_height="match_parent" android:id="@+id/buttonGuardar"
-                android:background="@color/colorAccent"
-                android:textColor="@android:color/white" android:textStyle="bold"
-                android:layout_toStartOf="@+id/buttonCancelar" android:layout_marginEnd="8dp"/>
-        <Button
+                android:id="@+id/buttonCancelar"
                 android:text="@string/cancel_marker"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content" android:id="@+id/buttonCancelar"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
                 android:background="@color/colorAccent"
-                android:textColor="@android:color/white" android:textStyle="bold" android:layout_alignParentEnd="true"
-                android:layout_marginEnd="8dp"/>
-    </RelativeLayout>
+                android:textColor="@android:color/white" android:textStyle="bold" />
+
+        <Button
+                android:id="@+id/buttonGuardar"
+                android:text="@string/save_marker"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:layout_marginLeft="40dp"
+                android:textColor="@android:color/white" android:textStyle="bold" />
+    </LinearLayout>
 
 
 </LinearLayout>

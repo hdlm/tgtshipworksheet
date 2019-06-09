@@ -9,7 +9,7 @@
     <string name="hint_targetspeed">Enter Target Speed</string>
     <string name="hint_targetcourse">Enter Target Course</string>
     <string name="save_marker">Save</string>
-    <string name="cancel_marker">Cancel</string>
+    <string name="cancel_marker">Back</string>
     <string name="prompt_targetaob">Choose Target AOB</string>
     <string name="label_time">Time*</string>
     <string name="label_owncourse">Own Course</string>

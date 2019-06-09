@@ -8,7 +8,11 @@ import android.text.TextUtils
  * <p>The persistence of the data is done through a <code>SharedPreferences</code>. </p>
  * <p>The class is responsible for recovering and saving the records of markers. </p>
  *
- * @version 1.1 2019-06-07
+ * @version 1.2, 2019-06-08
+ * @author hdelamano
+ * <p>Fue corregida la busqueda por {@link com.dlm.targetshipworksheet.model.MarkerModel#find id}.</p>
+ *
+ * @version 1.1, 2019-06-07
  * @author hdelamano
  * <p>Adjustments were made for the change of properties of the {@link com.dlm.targetshipworksheet.model.Marker marker} class and refinement in several methods</p>
  *
@@ -108,7 +112,7 @@ class MarkerModel (var myPref: SharedPreferences) {
     fun nextAvailableId(list : List<Marker>) : Int
     {
         for (marker in list) {
-            if (TextUtils.isEmpty(marker?.time) ) return marker.id!!
+            if (TextUtils.isEmpty(marker.time) ) return marker.id!!
         }
 
         var lst : ArrayList<Marker> = list as ArrayList
@@ -120,9 +124,9 @@ class MarkerModel (var myPref: SharedPreferences) {
 
 
     /** The method is responsible for finding the marker corresponding to the specified 'id' */
-    fun find(id : String) : Marker? {
+    fun find(id : Int) : Marker? {
         for(marker in findAll()) {
-            if(id.equals(marker.id))  return marker
+            if(id  == marker.id)  return marker
         }
         return null
     }

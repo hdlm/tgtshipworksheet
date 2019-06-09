@@ -18,7 +18,11 @@ import kotlinx.android.synthetic.main.activity_marker_details.*
 /**
  * The class is responsible for creating / editing a marker or annotation of a vessel detected
  *
- * @version 1.1 2019-06-07
+ * @version 1.2, 2019-06-08
+ * @author hdelamano
+ * <p>Se suprimio un warning que esta ocurriendo por el ensombrecimiento de una variable.</p>
+ *
+ * @version 1.1, 2019-06-07
  * @author hdelamano
  * <p>Adjustments were made for the change of properties of the {@link com.dlm.targetshipworksheet.model.Marker marker} class </p>
  *
@@ -45,7 +49,7 @@ class MarkerDetail : AppCompatActivity() {
         var intent = intent
         var id = intent.getStringExtra("id")
         var markerModel = MarkerModel(prefs!!)
-        var marker = markerModel.find(id)
+        var marker = markerModel.find(id.toInt())
 
         textViewId.text = marker?.id.toString()
         if(!TextUtils.isEmpty(marker?.time)) {  // cargar los valores de los campos correspondientes
@@ -64,7 +68,7 @@ class MarkerDetail : AppCompatActivity() {
         }
         buttonGuardar.setOnClickListener {
             if (validateFields()) {  // campos requeridos llenados satisfactoriamente
-                var marker = markerModel.emptyMarker()
+                @Suppress("NAME_SHADOWING") var marker = markerModel.emptyMarker()
                 marker.id = textViewId.text.toString().toInt()
                 marker.time = editTextTime.text.toString()
                 if (!TextUtils.isEmpty(editTextOwnCourse.text)) marker.ownCourse = editTextOwnCourse.text.toString()
