@@ -10,7 +10,7 @@ import android.text.TextUtils
  *
  * @version 1.2, 2019-06-08
  * @author hdelamano
- * <p>Fue corregida la busqueda por [id][com.dlm.targetshipworksheet.model.MarkerModel.find].</p>
+ * <p>The search was corrected by [id][com.dlm.targetshipworksheet.model.MarkerModel.find].</p>
  *
  * @version 1.1, 2019-06-07
  * @author hdelamano

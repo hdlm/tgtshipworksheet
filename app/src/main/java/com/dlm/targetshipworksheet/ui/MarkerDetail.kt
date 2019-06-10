@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_marker_details.*
  *
  * @version 1.2, 2019-06-08
  * @author hdelamano
- * <p>Se suprimio un warning que esta ocurriendo por el ensombrecimiento de una variable.</p>
+ * <p>A warning that is occurring due to the overshadowing of a variable was suppressed.</p>
  *
  * @version 1.1, 2019-06-07
  * @author hdelamano
@@ -33,7 +33,6 @@ class MarkerDetail : AppCompatActivity() {
     //Patched to accept String in a clean code when used InputType=Number on EditText
     fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this)
 
-    val TITLE = "Marker Detail"
     val PREFS_NAME = MainActivity.prefsName()
 
     var prefs : SharedPreferences? = null
@@ -45,7 +44,7 @@ class MarkerDetail : AppCompatActivity() {
 
         prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
-        setTitle(TITLE)
+        setTitle(this.getString(R.string.marker_detail_title))
         var intent = intent
         var id = intent.getStringExtra("id")
         var markerModel = MarkerModel(prefs!!)

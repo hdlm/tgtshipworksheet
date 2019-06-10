@@ -1,5 +1,29 @@
 <resources>
+
+    <!-- Main Activity / Target Ship Worksheet -->
+    <string name="worksheet_label_column_id">Id</string>
+    <string name="worksheet_label_column_time">Time</string>
+    <string name="worksheet_label_column_own_course">Own Crs</string>
+    <string name="worksheet_label_column_own_speed">Own Spd</string>
+    <string name="worksheet_label_column_target_bearing">Tgt Brg</string>
+    <string name="worksheet_label_column_target_aob">Tgt AOB</string>
+    <string name="worksheet_label_column_target_range">Tgt Rng</string>
+    <string name="worksheet_label_column_target_speed">Tgt Spd</string>
+    <string name="worksheet_label_column_target_course">Tgt Crs</string>
+
+    <string name="worksheet_hint_column_time">Time</string>
+    <string name="worksheet_hint_column_own_course">Own Course</string>
+    <string name="worksheet_hint_column_own_speed">Own Speed</string>
+    <string name="worksheet_hint_column_target_bearing">Target Bearing</string>
+    <string name="worksheet_hint_column_target_aob">Target AOB</string>
+    <string name="worksheet_hint_column_target_range">Target Range</string>
+    <string name="worksheet_hint_column_target_speed">Target Speed</string>
+    <string name="worksheet_hint_column_target_course">Target Course</string>
+
+
+    <!-- Marker Detail -->
     <string name="app_name">Target Ship Worksheet</string>
+    <string name="marker_detail_title">Marker Detail</string>
     <string name="hint_time">Enter the Time</string>
     <string name="hint_owncourse">Enter Own Course</string>
     <string name="hint_ownspeed">Enter Own Speed</string>

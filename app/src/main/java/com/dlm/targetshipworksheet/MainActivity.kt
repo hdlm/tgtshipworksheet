@@ -25,6 +25,10 @@ import com.dlm.targetshipworksheet.model.MarkerModel
  * <p>The UI emulates a DataGrid component to display the data.</p>
  * @see http://learningprogramming.net/mobile/android/create-datatable-in-android/
  *
+ * @version 1.2, 2019-06-10
+ * @author hdelamano
+ * <p>Use the file <code>string.xml</code> to display the messages.</p>
+ *
  * @version 1.1, 2019-06-07
  * @author hdelamano
  * <p>The necessary adjustments were made for the changes of properties in the [marker][com.dlm.targetshipworksheet.model.Marker]
@@ -85,7 +89,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     /**
-     * El metodo muestra el encabezado de la la hoja
+     * The method shows the heading of the spreadsheet
      */
     private fun createColumns() : Unit {
         var tableRow = TableRow(this)
@@ -93,73 +97,73 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         // Id Column
         var textViewId = TextView(this)
-        textViewId.text = "Id"
+        textViewId.text = this.getString(R.string.worksheet_label_column_id)
         textViewId.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
         textViewId.setPadding(5,5,5,0)
         tableRow.addView(textViewId)
 
         // Time column
         var textViewTime = TextView(this)
-        textViewTime.text = "Time"
+        textViewTime.text = this.getString(R.string.worksheet_label_column_time)
         textViewTime.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
         textViewTime.setPadding(5,5,5,0)
-        textViewTime.setOnClickListener {Toast.makeText(applicationContext, "Time", Toast.LENGTH_LONG).show() }
+        textViewTime.setOnClickListener {Toast.makeText(applicationContext, this.getString(R.string.worksheet_hint_column_time), Toast.LENGTH_SHORT).show() }
         tableRow.addView(textViewTime)
 
         // Own Course Column
         var textViewOwnCourse = TextView(this)
-        textViewOwnCourse.text = "Own Crs"
+        textViewOwnCourse.text = this.getString(R.string.worksheet_label_column_own_course)
         textViewOwnCourse.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
         textViewOwnCourse.setPadding(5,5,5,0)
-        textViewOwnCourse.setOnClickListener {Toast.makeText(applicationContext, "Own Course", Toast.LENGTH_LONG).show() }
+        textViewOwnCourse.setOnClickListener {Toast.makeText(applicationContext, this.getString(R.string.worksheet_hint_column_own_course), Toast.LENGTH_SHORT).show() }
         tableRow.addView(textViewOwnCourse)
 
         // Own Speed Column
         var textViewOwnSpeed = TextView(this)
-        textViewOwnSpeed.text = "Own Spd"
+        textViewOwnSpeed.text = this.getString(R.string.worksheet_label_column_own_speed)
         textViewOwnSpeed.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
         textViewOwnSpeed.setPadding(5,5,5,0)
-        textViewOwnSpeed.setOnClickListener {Toast.makeText(applicationContext, "Own Speed", Toast.LENGTH_LONG).show() }
+        textViewOwnSpeed.setOnClickListener {Toast.makeText(applicationContext, this.getString(R.string.worksheet_hint_column_own_speed), Toast.LENGTH_SHORT).show() }
         tableRow.addView(textViewOwnSpeed)
 
         // Target Bearing Column
         var textViewTargetBearing = TextView(this)
-        textViewTargetBearing.text = "Tgt Brg"
+        textViewTargetBearing.text = this.getString(R.string.worksheet_label_column_target_bearing)
         textViewTargetBearing.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
         textViewTargetBearing.setPadding(5,5,5,0)
-        textViewTargetBearing.setOnClickListener {Toast.makeText(applicationContext, "Target Bearing", Toast.LENGTH_LONG).show() }
+        textViewTargetBearing.setOnClickListener {Toast.makeText(applicationContext, this.getString(R.string.worksheet_hint_column_target_bearing), Toast.LENGTH_SHORT).show() }
         tableRow.addView(textViewTargetBearing)
 
         // Target AOB Column
         var textViewTargetAob = TextView(this)
-        textViewTargetAob.text = "Tgt AOB"
+        textViewTargetAob.text = this.getString(R.string.worksheet_label_column_target_aob)
         textViewTargetAob.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
         textViewTargetAob.setPadding(5,5,5,0)
-        textViewTargetAob.setOnClickListener {Toast.makeText(applicationContext, "Target AOB", Toast.LENGTH_LONG).show() }
+        textViewTargetAob.setOnClickListener {Toast.makeText(applicationContext, this.getString(R.string.worksheet_hint_column_target_aob), Toast.LENGTH_SHORT).show() }
         tableRow.addView(textViewTargetAob)
 
         // Target Range Column
         var textViewTargetRange = TextView(this)
-        textViewTargetRange.text = "Tgt Rng"
+        textViewTargetRange.text = this.getString(R.string.worksheet_label_column_target_range)
         textViewTargetRange.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
         textViewTargetRange.setPadding(5,5,5,0)
-        textViewTargetRange.setOnClickListener {Toast.makeText(applicationContext, "Target Range", Toast.LENGTH_LONG).show() }
+        textViewTargetRange.setOnClickListener {Toast.makeText(applicationContext, this.getString(R.string.worksheet_hint_column_target_range), Toast.LENGTH_SHORT).show() }
         tableRow.addView(textViewTargetRange)
 
         // Target Speed Column
         var textViewTargetSpeed = TextView(this)
-        textViewTargetSpeed.text = "Tgt Spd"
+        textViewTargetSpeed.text = this.getString(R.string.worksheet_label_column_target_speed)
         textViewTargetSpeed.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
         textViewTargetSpeed.setPadding(5,5,5,0)
-        textViewTargetSpeed.setOnClickListener {Toast.makeText(applicationContext, "Target Speed", Toast.LENGTH_LONG).show() }
+        textViewTargetSpeed.setOnClickListener {Toast.makeText(applicationContext, this.getString(R.string.worksheet_hint_column_target_speed), Toast.LENGTH_SHORT).show() }
         tableRow.addView(textViewTargetSpeed)
 
         // Target Course Column
         var textViewTargetCourse = TextView(this)
-        textViewTargetCourse.text = "Tgt Crs"
+        textViewTargetCourse.text = this.getString(R.string.worksheet_label_column_target_course)
         textViewTargetCourse.setTypeface(Typeface.DEFAULT, Typeface.BOLD)
         textViewTargetCourse.setPadding(5,5,5,0)
-        textViewTargetCourse.setOnClickListener {Toast.makeText(applicationContext, "Target Course", Toast.LENGTH_LONG).show() }
+        textViewTargetCourse.setOnClickListener {Toast.makeText(applicationContext, this.getString(R.string.worksheet_hint_column_target_course), Toast.LENGTH_SHORT).show() }
         tableRow.addView(textViewTargetCourse)
 
         tableLayout!!.addView(tableRow, TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT))
@@ -236,7 +240,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     /**
-     * El metodo se encarga de llenar la hoja con los registros almacenados
+     * The method is responsible for filling the spreadsheet with the stored records
      * @param list collection of markers
      */
     private fun fillData(list : List<Marker>) : Unit {
