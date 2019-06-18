@@ -1,2 +1,5 @@
-# tgtshipworksheet
-Target Shipwork Sheet
+# Target Ship Worksheet for Android
+###### Powered by [Henry De la Mano](http://hdlm.me)
+### Release notes - ver. **1.0**
+## Solucion de los siguientes issues:
+- [x] version inicial
